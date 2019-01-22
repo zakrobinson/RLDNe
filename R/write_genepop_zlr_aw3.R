@@ -114,19 +114,14 @@ write_genepop_zlr<-function(loci,pops,ind.ids,folder,filepath,missingVal=NA,ncod
       popdecode$popname[i]<-as.character(pop_levels[i])
       tmp<-as.character(x[which(x$pops==pop_levels[i]),"ind.ids"])
       popdecode$gp_popname[i]<-tmp[length(tmp)]
-<<<<<<< HEAD
       popdecode$ld_popname[i]<-tmp[1]
-=======
->>>>>>> 5de65dab29be2c1b2abd83229982e55a81adb579
     }
-
     sink()
-
-
+    closeAllConnections()
     output<-list(paste0(folder,filepath),popdecode)
     names(output)<-c("Output_File","Pop_decode")
     return(output)
-    closeAllConnections()
+
   }
 
 #### end write genepop function
