@@ -1,7 +1,6 @@
 # RLDNe
-<<<<<<< HEAD
-# RLDNe
-=======
+
+
 ## Description:
 An R-package that conveniently interfaces with NeEstimator 2.1 for Linux and Mac platforms
 
@@ -20,4 +19,4 @@ y<- NeV2_LDNe_create(input_file = x ,param_file = "params.txt" ,NE_out_file = "N
 
 
 run_LDNe(LDNe_params = y)
->>>>>>> 5de65dab29be2c1b2abd83229982e55a81adb579
+
