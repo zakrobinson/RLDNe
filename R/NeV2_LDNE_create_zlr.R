@@ -45,7 +45,10 @@ NeV2_LDNe_create<-function(input_file, param_file,NE_out_file, matingsystem=1,cr
   cat("\n*")
 
   sink()
+<<<<<<< HEAD
   closeAllConnections()
+=======
+>>>>>>> 5de65dab29be2c1b2abd83229982e55a81adb579
   return(param_file)
 
 }
