@@ -20,3 +20,4 @@ y<- NeV2_LDNe_create(input_file = x ,param_file = "params.txt" ,NE_out_file = "N
 
 run_LDNe(LDNe_params = y)
 
+readLDNe_tab(path = "NeoutxLD.txt")
