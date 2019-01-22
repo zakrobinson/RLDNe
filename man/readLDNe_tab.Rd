@@ -2,7 +2,7 @@
 % Please edit documentation in R/readLDNe_tab.R
 \name{readLDNe_tab}
 \alias{readLDNe_tab}
-\title{Write LDNe Parameter File}
+\title{Read LDNe Tabular Output}
 \usage{
 readLDNe_tab(path)
 }

@@ -1,4 +1,4 @@
-#'Write LDNe Parameter File
+#'Read LDNe Tabular Output
 #'
 #'This function parses the tabular output from LDNe
 #'
