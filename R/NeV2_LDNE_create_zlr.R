@@ -27,7 +27,7 @@ NeV2_LDNe_create<-function(input_file, param_file,NE_out_file, matingsystem=1,cr
   cat(paste(as.character(crit_vals)))
   cat("\t* critical allele frequency values")
   cat("\n")
-  cat("0\t*tabular output")
+  cat("1\t*tabular output")
   cat("\n")
   cat("1\t* confidence intervals")
   cat("\n")
