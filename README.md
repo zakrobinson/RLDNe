@@ -1,6 +1,6 @@
 # RLDNe
 ## Description:
-An R-package that conveniently interfaces with NeEstimator 2.1
+An R-package that conveniently interfaces with NeEstimator 2.1 for Linux and Mac platforms
 
 ## Install directions:
 devtools::install_github(repo="zakrobinson/RLDNe")
