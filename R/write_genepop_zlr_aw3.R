@@ -20,7 +20,7 @@
 #'
 write_genepop_zlr<-function(loci,pops,ind.ids,folder,filepath,missingVal=NA,ncode=2,diploid=T){
 
-## Note: if ncode is 2 and diploid is true then the alleles will be recoded to 2 digits
+  on.exit(expr = closeAllConnections())
 
 
   if(length(unlist(strsplit(filepath,split = "\\s",perl = T)))>1){
