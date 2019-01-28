@@ -12,9 +12,9 @@ run_LDNe<-function(LDNe_params){
     if(Sys.info()["sysname"]=="Windows"){
     Neestimator<-paste0(.libPaths()[length(.libPaths())],"/RLDNe/bin/Windows/Ne2-1.exe")
     }
-
-    }else{
+  else{
     Neestimator<-paste0(.libPaths()[length(.libPaths())],"/RLDNe/bin/Mac/Ne2-1M")
+  }
   }
   system(paste0(Neestimator," ", "c:", LDNe_params))
   return("output file location was specified in param file")
