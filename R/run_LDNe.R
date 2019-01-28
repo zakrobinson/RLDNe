@@ -9,6 +9,11 @@ run_LDNe<-function(LDNe_params){
     Neestimator<-paste0(.libPaths()[length(.libPaths())],"/RLDNe/bin/Linux/Ne2-1L")
   }
   else{
+    if(Sys.info()["sysname"]=="Windows"){
+    Neestimator<-paste0(.libPaths()[length(.libPaths())],"/RLDNe/bin/Windows/Ne2-1.exe")
+    }
+
+    }else{
     Neestimator<-paste0(.libPaths()[length(.libPaths())],"/RLDNe/bin/Mac/Ne2-1M")
   }
   system(paste0(Neestimator," ", "c:", LDNe_params))
