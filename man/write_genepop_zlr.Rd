@@ -4,35 +4,35 @@
 \alias{write_genepop_zlr}
 \title{Write Genepop file}
 \usage{
-write_genepop_zlr(loci, pops, ind.ids, folder, filepath, missingVal = NA,
+write_genepop_zlr(loci, pops, ind.ids, folder, filename, missingVal = NA,
   ncode = 2, diploid = T)
 }
 \arguments{
-\item{loci}{data.frame of genotypes in hierfstat format}
+\item{loci}{Data frame of genotypes in hierfstat format.}
 
-\item{pops}{vector of (equal length to rows of genotypes) designating populations for each individual}
+\item{pops}{Vector of (equal length to rows of genotypes) designating populations for each individual}
 
-\item{ind.ids}{vector of individual Identifiers ( must be equal in length to rows of genotypes)}
+\item{ind.ids}{Vector of individual Identifiers ( must be equal in length to rows of genotypes)}
 
-\item{folder}{dir for saving genepop output file}
+\item{folder}{Directory for saving genepop output file}
 
-\item{filepath}{file name for output file also the description at top of genepop file}
+\item{filename}{File name for output file also the description at top of genepop file}
 
-\item{missingVal}{specifies the value of missing data in loci object}
+\item{missingVal}{specifies the value of missing data in loci object. Defaults to NA.}
 
 \item{ncode}{2 x number of characters per allele (i.e. 22 = ncode = 2, since 1 character per allele going into the function * 2)}
 
 \item{diploid}{logical for whether the data is diploid or not}
 }
 \value{
-returns a list of length 2. The output contains the filepath of created genepop file and information for identifying populations following genepop analysis.
+returns a list of length 2. The output contains the filename of created genepop file and information for identifying populations following Genepop and NeEstimator Analysis.
 }
 \description{
 This function writes a genepop file from hierfstat format data.
 }
 \examples{
-data("writegenepop_examp")
-write_genepop_zlr(loci = wgp_example[,3:ncol(wgp_example)],pops = wgp_example$pop,ind.ids = wgp_example$ind_id,folder = "",filepath ="genepop_output.txt",missingVal = NA,ncode = 2,diploid = T)
+data("wgp_example")
+write_genepop_zlr(loci = wgp_example[,3:ncol(wgp_example)],pops = wgp_example$pop,ind.ids = wgp_example$ind_id,folder = "",filename ="genepop_output.txt",missingVal = NA,ncode = 2,diploid = T)
 }
 \author{
 Zak Robinson, Contact: zachary.robinson(at)umontana.com

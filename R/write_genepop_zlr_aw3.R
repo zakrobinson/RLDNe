@@ -2,28 +2,28 @@
 #'
 #' This function writes a genepop file from hierfstat format data.
 #'
-#' @param loci data.frame of genotypes in hierfstat format
-#' @param ind.ids vector of individual Identifiers ( must be equal in length to rows of genotypes)
-#' @param pops vector of (equal length to rows of genotypes) designating populations for each individual
-#' @param folder dir for saving genepop output file
-#' @param filepath file name for output file also the description at top of genepop file
-#' @param missingVal specifies the value of missing data in loci object
+#' @param loci Data frame of genotypes in hierfstat format.
+#' @param ind.ids Vector of individual Identifiers ( must be equal in length to rows of genotypes)
+#' @param pops Vector of (equal length to rows of genotypes) designating populations for each individual
+#' @param folder Directory for saving genepop output file
+#' @param filename File name for output file also the description at top of genepop file
+#' @param missingVal specifies the value of missing data in loci object. Defaults to NA.
 #' @param ncode 2 x number of characters per allele (i.e. 22 = ncode = 2, since 1 character per allele going into the function * 2)
 #' @param diploid logical for whether the data is diploid or not
 #' @author Zak Robinson, Contact: zachary.robinson(at)umontana.com
-#' @return returns a list of length 2. The output contains the filepath of created genepop file and information for identifying populations following genepop analysis.
+#' @return returns a list of length 2. The output contains the filename of created genepop file and information for identifying populations following Genepop and NeEstimator Analysis.
 #' @examples
-#' data("writegenepop_examp")
-#' write_genepop_zlr(loci = wgp_example[,3:ncol(wgp_example)],pops = wgp_example$pop,ind.ids = wgp_example$ind_id,folder = "",filepath ="genepop_output.txt",missingVal = NA,ncode = 2,diploid = T)
+#' data("wgp_example")
+#' write_genepop_zlr(loci = wgp_example[,3:ncol(wgp_example)],pops = wgp_example$pop,ind.ids = wgp_example$ind_id,folder = "",filename ="genepop_output.txt",missingVal = NA,ncode = 2,diploid = T)
 #' @export
 #'
 #'
-write_genepop_zlr<-function(loci,pops,ind.ids,folder,filepath,missingVal=NA,ncode=2,diploid=T){
+write_genepop_zlr<-function(loci,pops,ind.ids,folder,filename,missingVal=NA,ncode=2,diploid=T){
 
   on.exit(expr = closeAllConnections())
 
 
-  if(length(unlist(strsplit(filepath,split = "\\s",perl = T)))>1){
+  if(length(unlist(strsplit(filename,split = "\\s",perl = T)))>1){
     warning("genepop doesn't like spaces in file names")
   }
 
@@ -86,9 +86,9 @@ write_genepop_zlr<-function(loci,pops,ind.ids,folder,filepath,missingVal=NA,ncod
     pop_levels<-unique(pops)
 
     #####open file connection
-    sink(file = paste0(folder,filepath),append = F)
+    sink(file = paste0(folder,filename),append = F)
     # write header of file
-    cat(filepath,sep = "\n")
+    cat(filename,sep = "\n")
     x<-paste("Locus",1:ncol(loci),sep = "-")
     y<-vector()
     for(i in 1:length(x)){
@@ -118,7 +118,7 @@ write_genepop_zlr<-function(loci,pops,ind.ids,folder,filepath,missingVal=NA,ncod
     }
     sink()
     closeAllConnections()
-    output<-list(paste0(folder,filepath),popdecode)
+    output<-list(paste0(folder,filename),popdecode)
     names(output)<-c("Output_File","Pop_decode")
     return(output)
 

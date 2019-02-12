@@ -4,8 +4,8 @@
 #'
 #' @param input_file Genepop format file containing genotypic data
 #' @param param_file Desired name of parameter file produced
-#' @param Ne_out_file Desired name of output from LDNe
-#' @param matingsystem 0: Random mating, 1: Monogamy (LD method)
+#' @param Ne_out_file Desired name of output file from LDNe
+#' @param matingsystem 0: Random mating, 1: Monogamy (LD method). Defaults to Monogamy.
 #' @param crit_vals minimum allele frequency cutoff. Defaults to c(0.02,0.05,0.1).
 #' @author Zak Robinson, Contact: zachary.robinson(at)umontana.com
 #' @return Path of created LDNe param file
@@ -48,7 +48,21 @@ NeV2_LDNe_create<-function(input_file, param_file,NE_out_file, matingsystem=1,cr
 
 
 
-  return(param_file)
+if(length(grep(x = NE_out_file,pattern = ".+(\\.txt$)"))>0){
+  theout<-gsub(x = NE_out_file,pattern = "(.+)(\\..+)",replacement = "\\1xLD\\2")
+}else{
+  if(length(grep(x = NE_out_file,pattern = ".+(\\..+$)"))>0){
+    theout<-gsub(x = NE_out_file,pattern = "(.+)(\\..+)",replacement = "\\1xLD.txt")
+  }else{
+    theout<-paste0(NE_out_file,"xLD.txt")
+  }
+
+}
+
+
+out<-list(param_file,theout)
+names(out)<-c("param_file","Ne_out_tab")
+  return(out)
 
 }
 

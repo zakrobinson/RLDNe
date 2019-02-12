@@ -12,11 +12,11 @@ NeV2_LDNe_create(input_file, param_file, NE_out_file, matingsystem = 1,
 
 \item{param_file}{Desired name of parameter file produced}
 
-\item{matingsystem}{0: Random mating, 1: Monogamy (LD method)}
+\item{matingsystem}{0: Random mating, 1: Monogamy (LD method). Defaults to Monogamy.}
 
 \item{crit_vals}{minimum allele frequency cutoff. Defaults to c(0.02,0.05,0.1).}
 
-\item{Ne_out_file}{Desired name of output from LDNe}
+\item{Ne_out_file}{Desired name of output file from LDNe}
 }
 \value{
 Path of created LDNe param file
