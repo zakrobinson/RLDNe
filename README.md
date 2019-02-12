@@ -9,18 +9,25 @@ devtools::install_github(repo="zakrobinson/RLDNe")
 
 
 ## Example function sequence for the LD-method in NeEstimator 
-data("writegenpop_examp")
+library(RLDNe)
+
+data("wgp_example")
 
 
-x<-write_genepop_zlr(loci = wgp_example[,3:ncol(wgp_example)],pops = wgp_example$pop,ind.ids = wgp_example$ind_id,folder = "",filepath ="genepop_output.txt",missingVal = NA,ncode = 2,diploid = T)[1]
+gp_file<-write_genepop_zlr(loci = wgp_example[,3:ncol(wgp_example)],pops = wgp_example$pop,ind.ids = wgp_example$ind_id,folder = "",filename ="genepop_output.txt",missingVal = NA,ncode = 2,diploid = T)
 
 
-y<- NeV2_LDNe_create(input_file = x ,param_file = "params.txt" ,NE_out_file = "Neout.txt")
+param_files<- NeV2_LDNe_create(input_file = gp_file$Output_File ,param_file = "Ne_params.txt" ,NE_out_file = "Ne_out.txt")
 
 
-run_LDNe(LDNe_params = y)
+run_LDNe(LDNe_params = param_files$param_file)
 
-readLDNe_tab(path = "NeoutxLD.txt")
+Ne_estimates<-readLDNe_tab(path = param_files$Ne_out_tab)
+
+#### Example of how to convert from alleles per column format to genotypes per column format
+
+genotype_examp<-alleles2genotypes(df = wgp_example_2col,allele_cols = 3:ncol(wgp_example_2col),allelesAsIntegers = T)
+
 
 ## Citation for NeEstimator
 
