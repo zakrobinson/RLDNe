@@ -20,9 +20,9 @@
 
 
 
-write_genepop_zlr<-function(loci,pops,ind.ids,folder,filename,missingVal=NA,ncode=2,diploid=T){
+write_genepop_zlr<-function(loci,pops,ind.ids,folder=getwd(),filename,missingVal=NA,ncode=2,diploid=T){
 
-  on.exit(expr = closeAllConnections())
+
 
 
   if(length(unlist(strsplit(filename,split = "\\s",perl = T)))>1){
@@ -86,7 +86,7 @@ write_genepop_zlr<-function(loci,pops,ind.ids,folder,filename,missingVal=NA,ncod
 
 
     pop_levels<-unique(pops)
-
+    on.exit(expr = suppressWarnings(sink())) #don't leave connections open during catastrophic failure
     #####open file connection
     sink(file = paste0(folder,filename),append = F)
     # write header of file
@@ -119,7 +119,7 @@ write_genepop_zlr<-function(loci,pops,ind.ids,folder,filename,missingVal=NA,ncod
       popdecode$ld_popname[i]<-tmp[1]
     }
     sink()
-    closeAllConnections()
+
     output<-list(paste0(folder,filename),popdecode)
     names(output)<-c("Output_File","Pop_decode")
     return(output)

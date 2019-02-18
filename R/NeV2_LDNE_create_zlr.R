@@ -16,9 +16,10 @@
 
 NeV2_LDNe_create<-function(input_file, param_file,NE_out_file, matingsystem=1,crit_vals= c(0.02,0.05,0.1)){
 
-  on.exit(expr = closeAllConnections())
+
   ncrits<-length(crit_vals) #ncrits number of critical values
   method=1 #Method 1: LD method; refer to manual for more methods
+  on.exit(expr = suppressWarnings(sink()))
   sink(file = param_file)
   cat(paste(as.character(method),"\t* LD Method"))
   cat("\n")

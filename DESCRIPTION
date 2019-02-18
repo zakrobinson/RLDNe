@@ -1,10 +1,12 @@
 Package: RLDNe
 Type: Package
-Title: A Package For Calculate Ne Based on the LD-Method
+Title: A Convenient R Interface For NeEstimator V2.1
 Version: 0.1.0
 Author: Zak Robinson
+Date: 2019-1-19
 Maintainer: Zak Robinson <zachary.robinson@umontana.edu>
-Description: This package allows the LD-Method in NeEstimator V2.1 to be easily ran from R
+Description: This package allows the LD-Method in NeEstimator V2.1 to be easily executed in R
+URL: https://github.com/zakrobinson/RLDNe
 License: GPL-2
 Encoding: UTF-8
 LazyData: true

@@ -4,8 +4,8 @@
 \alias{write_genepop_zlr}
 \title{Write Genepop file}
 \usage{
-write_genepop_zlr(loci, pops, ind.ids, folder, filename, missingVal = NA,
-  ncode = 2, diploid = T)
+write_genepop_zlr(loci, pops, ind.ids, folder = getwd(), filename,
+  missingVal = NA, ncode = 2, diploid = T)
 }
 \arguments{
 \item{loci}{Data frame of genotypes in hierfstat format.}

@@ -6,16 +6,28 @@
 
 run_LDNe<-function(LDNe_params){
   if(Sys.info()["sysname"]=="Windows"){
-    Neestimator<-paste0(.libPaths()[length(.libPaths())],"/RLDNe/bin/windows64/Ne2-1.exe")
+    for(i in .libPaths()){
+      if(file.exists(paste0(i,"/RLDNe/bin/windows64/Ne2-1.exe"))){
+        Neestimator<-paste0(i,"/RLDNe/bin/windows64/Ne2-1.exe")
+      }
+    }
   }
 
   else{
     if(Sys.info()["sysname"]=="Linux"){
-      Neestimator<-paste0(.libPaths()[length(.libPaths())],"/RLDNe/bin/linux/Ne2-1L")
+      for(i in .libPaths()){
+        if(file.exists(paste0(i,"/RLDNe/bin/linux/Ne2-1L"))){
+          Neestimator<-paste0(i,"/RLDNe/bin/linux/Ne2-1L")
+        }
+      }
     }
 
   else{
-    Neestimator<-paste0(.libPaths()[length(.libPaths())],"/RLDNe/bin/mac/Ne2-1M")
+    for(i in .libPaths()){
+      if(file.exists(paste0(i,"/RLDNe/bin/mac/Ne2-1M"))){
+        Neestimator<-paste0(i,"/RLDNe/bin/mac/Ne2-1M")
+      }
+    }
   }
   }
   system(paste0(Neestimator," ", "c:", LDNe_params))
