@@ -4,7 +4,7 @@
 #'
 #' @param input_file Genepop format file containing genotypic data
 #' @param param_file Desired name of parameter file produced
-#' @param Ne_out_file Desired name of output file from LDNe
+#' @param NE_out_file Desired name of output file from LDNe
 #' @param matingsystem 0: Random mating, 1: Monogamy (LD method). Defaults to Monogamy.
 #' @param crit_vals minimum allele frequency cutoff. Defaults to c(0.02,0.05,0.1).
 #' @author Zak Robinson, Contact: zachary.robinson(at)umontana.com

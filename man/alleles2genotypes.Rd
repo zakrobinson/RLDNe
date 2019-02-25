@@ -4,14 +4,14 @@
 \alias{alleles2genotypes}
 \title{Convert Alleles to Genotypes (hierfstat format)}
 \usage{
-alleles2genotypes(df, allele_cols, allelesAsIntegers = T)
+alleles2genotypes(df, allele_cols, allelesAsIntegers = TRUE)
 }
 \arguments{
 \item{df}{Data frame that contains genotypic data and metadata}
 
 \item{allele_cols}{Numeric column identifiers of loci}
 
-\item{allelesAsIntegers}{For microsats with leading zeros use FALSE. If FALSE this will eliminate the loss of leading zeros, but will not be usable in 'hierfstat'. When TRUE the genotypes are converted to integers for 'hierfstat' package.}
+\item{allelesAsIntegers}{For alleles with zeros use FALSE. If FALSE this will eliminate the loss of leading zeros, but will not be usable in 'hierfstat'. When TRUE the genotypes are converted to integers for 'hierfstat' package.}
 }
 \value{
 Data frame in genotype per column format
@@ -20,8 +20,9 @@ Data frame in genotype per column format
 A function that will return a data frame in genotype per column format from a data frame in allele per column format.
 }
 \examples{
-data("wgp_example")
-alleles2genotypes(wgp_example_2col,allele_cols = 3:ncol(wgp_example_2col),allelesAsIntegers = T)
+data("wgp_example_2col")
+genotypes<-alleles2genotypes(df=wgp_example_2col,allele_cols = 3:ncol(wgp_example_2col),
+allelesAsIntegers=TRUE)
 }
 \author{
 Zak Robinson, Contact: zachary.robinson(at)umontana.com

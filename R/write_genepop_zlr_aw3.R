@@ -14,7 +14,11 @@
 #' @return returns a list of length 2. The output contains the filename of created genepop file and information for identifying populations following Genepop and NeEstimator Analysis.
 #' @examples
 #' data("wgp_example")
-#' write_genepop_zlr(loci = wgp_example[,3:ncol(wgp_example)],pops = wgp_example$pop,ind.ids = wgp_example$ind_id,folder = "",filename ="genepop_output.txt",missingVal = NA,ncode = 2,diploid = T)
+#'
+#' write_genepop_zlr(loci = wgp_example[,3:ncol(wgp_example)],pops = wgp_example$pop,
+#' ind.ids = wgp_example$ind_id,folder = "",filename ="genepop_output.txt",missingVal = NA,
+#' ncode = 2,diploid = TRUE)
+#'
 #' @export
 
 

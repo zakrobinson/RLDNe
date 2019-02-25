@@ -32,7 +32,11 @@ This function writes a genepop file from hierfstat format data.
 }
 \examples{
 data("wgp_example")
-write_genepop_zlr(loci = wgp_example[,3:ncol(wgp_example)],pops = wgp_example$pop,ind.ids = wgp_example$ind_id,folder = "",filename ="genepop_output.txt",missingVal = NA,ncode = 2,diploid = T)
+
+write_genepop_zlr(loci = wgp_example[,3:ncol(wgp_example)],pops = wgp_example$pop,
+ind.ids = wgp_example$ind_id,folder = "",filename ="genepop_output.txt",missingVal = NA,
+ncode = 2,diploid = TRUE)
+
 }
 \author{
 Zak Robinson, Contact: zachary.robinson(at)umontana.com

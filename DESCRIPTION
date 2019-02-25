@@ -5,7 +5,7 @@ Version: 0.1.0
 Author: Zak Robinson
 Date: 2019-1-19
 Maintainer: Zak Robinson <zachary.robinson@umontana.edu>
-Description: This package allows the LD-Method in NeEstimator V2.1 to be easily executed in R
+Description: This package allows the LD-Method in NeEstimator V2.1 to be easily executed in R.
 URL: https://github.com/zakrobinson/RLDNe
 License: GPL-2
 Encoding: UTF-8

@@ -2,6 +2,7 @@
 
 export(NeV2_LDNe_create)
 export(alleles2genotypes)
+export(fix_permissions_RLDNe)
 export(readLDNe_tab)
 export(run_LDNe)
 export(write_genepop_zlr)
