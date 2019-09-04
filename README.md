@@ -26,6 +26,8 @@ Ne_estimates<-readLDNe_tab(path = param_files$Ne_out_tab)
 
 #### Example of how to convert from alleles per column format to genotypes per column format
 data("wgp_example_2col")
+
+
 genotype_examp<-alleles2genotypes(df = wgp_example_2col,allele_cols = 3:ncol(wgp_example_2col),allelesAsIntegers = TRUE)
 
 
