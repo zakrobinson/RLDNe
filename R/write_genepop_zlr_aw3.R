@@ -95,7 +95,7 @@ write_genepop_zlr<-function(loci,pops,ind.ids,folder=getwd(),filename,missingVal
     sink(file = paste0(folder,filename),append = F)
     # write header of file
     cat(filename,sep = "\n")
-    x<-paste("Locus",1:ncol(loci),sep = "-")
+    x<-paste0("L",1:ncol(loci))
     y<-vector()
     for(i in 1:length(x)){
       if(i<length(x)){
