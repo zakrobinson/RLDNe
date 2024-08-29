@@ -7,13 +7,14 @@ Date: 2024-8-29
 Maintainer: Zak Robinson <zrobinson@critfc.org>
 Description: This package allows the LD-Method in NeEstimator V2.1 to be easily executed via R.
 URL: https://github.com/zakrobinson/RLDNe
+Depends:
+    EFGLmh
 Imports:
     tibble,
     dplyr,
     readr,
     tidyr,
-    remotes (>= 2.1.0),
-    EFGLmh
+    remotes (>= 2.1.0)
 Remotes:
     github::delomast/EFGLmh
 License: GPL-2
