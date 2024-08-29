@@ -34,9 +34,13 @@ writes a genepop-style file and returns a RLDNe_data object, which is just a lis
  The RLDNe_data object merely streamlines the use of subsequent functions by keeping track of file names and population/loci names.
 }
 \description{
-This function writes a genepop file from hierfstat format data.
+Write Genepop file and create an RLDNe list object
 }
 \examples{
+
 data("wgp_example_2col")
+colnames(wgp_example_2col) <- gsub("_(\\\\d)$",replacement = "\\\\.A\\\\1",colnames(wgp_example_2col))
+efgl <- readInData(wgp_example_2col,genotypeStart = 3,pedigreeColumn = 1,nameColumn = 2)
+rldne <- exportGenePop_RLDNe(EFGLdata = efgl)
 
 }

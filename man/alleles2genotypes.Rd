@@ -20,11 +20,11 @@ alleles2genotypes(
 
 \item{name_sep}{The locus-allele seperator in column names (e.g., "_" in Loc1_A1,Loc1_A2...LocN_A1,LocN_A2).}
 
-\item{name_pattern}{The locus-allele identifiers in column names specified by regex capture group (e.g., "(.+)_(A.$) performs the same as name_sep="_"). This is useful when the locus-allele separator string is repeated in column names (e.g, Loc_1_A1). This argument takes precedent over name_sep.}
+\item{name_pattern}{The locus-allele identifiers in column names specified by 2 regex capture groups (e.g., "(.+)_(A.$) performs the same as name_sep="_"). This is useful when the locus-allele separator string is repeated in column names (e.g, Loc_1_A1). This argument takes precedent over name_sep.}
 
 \item{suffix}{Logical that allele identifier is a suffix (e.g., Loc1_A1 instead of A1_Loc1). Default=T.}
 
-\item{Adelim}{Delimiter string between alleles. The default="" is not ideal when allele character lengths vary.}
+\item{Adelim}{Desired delimiter string between alleles in output. The default="" is not ideal when allele character lengths vary.}
 }
 \value{
 Data frame in genotype per column format

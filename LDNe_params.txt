@@ -1,0 +1,11 @@
+1 	* LD Method
+3 	* number of critical values
+0.02 0.05 0.1	* critical allele frequency values
+1	* tabular output
+1	* confidence intervals
+0 	* 0: Random mating, 1: Monogamy (LD method)
+0	* max individual to be processed per pop, 0 for no limit
+0	* Pop. range to run, given in pair. No limit if the first = 0
+0	* Loc. ranges to run, given in pairs. No limit if the 1st = 0
+LDNEresults.txt	* output file name
+genepop.gen 	* input file

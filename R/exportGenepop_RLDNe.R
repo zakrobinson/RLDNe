@@ -1,6 +1,5 @@
 #'Write Genepop file and create an RLDNe list object
 #'
-#' This function writes a genepop file from hierfstat format data.
 #'
 #' @param x an EFGLdata object
 #' @param filename the name of the file to write
@@ -14,7 +13,11 @@
 #' @return writes a genepop-style file and returns a RLDNe_data object, which is just a list of length 5.
 #'  The RLDNe_data object merely streamlines the use of subsequent functions by keeping track of file names and population/loci names.
 #' @examples
+#'
 #' data("wgp_example_2col")
+#' colnames(wgp_example_2col) <- gsub("_(\\d)$",replacement = "\\.A\\1",colnames(wgp_example_2col))
+#' efgl <- readInData(wgp_example_2col,genotypeStart = 3,pedigreeColumn = 1,nameColumn = 2)
+#' rldne <- exportGenePop_RLDNe(EFGLdata = efgl)
 #'
 #'@import EFGLmh
 #' @export
@@ -131,7 +134,7 @@ print.RLDNe_data <- function(x,...){
   }else{
     cat("$LDNeOutFile: ",x$LDNeOutFile)
   }
-
+cat("\n")
 }
 
 

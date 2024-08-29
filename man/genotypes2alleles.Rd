@@ -4,16 +4,18 @@
 \alias{genotypes2alleles}
 \title{Convert wide format Genotypes to wider format Alleles}
 \usage{
-genotypes2alleles(df, loci, fixed_A = NULL, delim = NULL)
+genotypes2alleles(df, loci, fixed_A = NULL, delim = NULL, name_sep = ".")
 }
 \arguments{
 \item{df}{Data frame that contains genotypic data and metadata}
 
 \item{loci}{Numeric column positions or names of loci}
 
-\item{fixed_A}{The number of characters of alleles. A diploid genotype "AT" has a fixed_A=1. Only used when the delimiter between alleles is "".}
+\item{fixed_A}{The number of characters of alleles in input. A diploid genotype "AT" has a fixed_A=1. Only use when the delimiter between alleles is "".}
 
-\item{delim}{A non-zero length character string separating alleles. For example, ":" for "A:T" or "-" 114-116"}
+\item{delim}{A non-zero length character string separating alleles in input. For example, ":" for "A:T" or "-" 114-116"}
+
+\item{name_sep}{The desired locus allele name separator for output column names e.g., "_" for Loc1_A1. Defaults to "."}
 }
 \value{
 Data frame in allele per column format
