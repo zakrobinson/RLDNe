@@ -1,13 +1,21 @@
 Package: RLDNe
 Type: Package
 Title: A Convenient R Interface For NeEstimator V2.1
-Version: 0.1.0
+Version: 1.0.0
 Author: Zak Robinson
-Date: 2019-1-19
-Maintainer: Zak Robinson <zachary.robinson@umontana.edu>
-Description: This package allows the LD-Method in NeEstimator V2.1 to be easily executed in R.
+Date: 2024-8-29
+Maintainer: Zak Robinson <zrobinson@critfc.org>
+Description: This package allows the LD-Method in NeEstimator V2.1 to be easily executed via R.
 URL: https://github.com/zakrobinson/RLDNe
+Imports:
+    tibble,
+    dplyr,
+    readr,
+    tidyr,
+    remotes (>= 2.1.0),
+Remotes:
+    github::delomast/EFGLmh
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.3.2

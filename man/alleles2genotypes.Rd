@@ -2,16 +2,29 @@
 % Please edit documentation in R/alleles2genotypes.R
 \name{alleles2genotypes}
 \alias{alleles2genotypes}
-\title{Convert Alleles to Genotypes (hierfstat format)}
+\title{Convert wider format Alleles to wide format Genotypes (hierfstat format)}
 \usage{
-alleles2genotypes(df, allele_cols, allelesAsIntegers = TRUE)
+alleles2genotypes(
+  df,
+  alleles,
+  name_sep = NULL,
+  name_pattern = NULL,
+  suffix = T,
+  Adelim = ""
+)
 }
 \arguments{
 \item{df}{Data frame that contains genotypic data and metadata}
 
-\item{allele_cols}{Numeric column identifiers of loci}
+\item{alleles}{Numeric column positions or names of loci}
 
-\item{allelesAsIntegers}{For alleles with zeros use FALSE. If FALSE this will eliminate the loss of leading zeros, but will not be usable in 'hierfstat'. When TRUE the genotypes are converted to integers for 'hierfstat' package.}
+\item{name_sep}{The locus-allele seperator in column names (e.g., "_" in Loc1_A1,Loc1_A2...LocN_A1,LocN_A2).}
+
+\item{name_pattern}{The locus-allele identifiers in column names specified by regex capture group (e.g., "(.+)_(A.$) performs the same as name_sep="_"). This is useful when the locus-allele separator string is repeated in column names (e.g, Loc_1_A1). This argument takes precedent over name_sep.}
+
+\item{suffix}{Logical that allele identifier is a suffix (e.g., Loc1_A1 instead of A1_Loc1). Default=T.}
+
+\item{Adelim}{Delimiter string between alleles. The default="" is not ideal when allele character lengths vary.}
 }
 \value{
 Data frame in genotype per column format
@@ -19,11 +32,16 @@ Data frame in genotype per column format
 \description{
 A function that will return a data frame in genotype per column format from a data frame in allele per column format.
 }
+\details{
+This function is meant to conveniently wrap tidyr and dplyr operations to convert data between two common wide formats. At the moment it works for diploid data when there is a common locus-allele identifier. If the input varies (e.g., Loc1.a1 Loc2_A1) you will want to gsub your way to uniformity or write your own solution.
+}
 \examples{
 data("wgp_example_2col")
-genotypes<-alleles2genotypes(df=wgp_example_2col,allele_cols = 3:ncol(wgp_example_2col),
-allelesAsIntegers=TRUE)
+genotypes<-alleles2genotypes(wgp_example_2col,alleles = grep("_\\\\d$",colnames(wgp_example_2col)),name_pattern = "(.+)_(.$)",suffix = T,Adelim = ":")
+}
+\seealso{
+\code{\link{genotypes2alleles}}
 }
 \author{
-Zak Robinson, Contact: zachary.robinson(at)umontana.com
+Zak Robinson, Contact: <zrobinson@critfc.org>
 }
