@@ -26,12 +26,13 @@ read_LDNeOutFile <- function(x,PopDecode=T){
     stop("x should be a RLDNe_data object or a file path")
   }
 lines <- readLines(LDNeOutFile)
+matModel <- gsub("Mating Model:\\s+","",lines[4])
 strt <- grep("^-------------------------$",lines)+1
 stop <- min(grep("^-------------------------------------$" ,lines))-2
 text <- paste(lines[strt:stop],collapse = "\n")
 res <- read.fwf(file = textConnection(text),widths = c(39,6,8,9,12,10,10,11,10,10,10,10,10))
 colnames(res) <- c("Pop","SampSize","CritValue","WeightedHMean","IndepAlleles","r2","Exp_r2_Sample","Ne","low_para","high_para","low_jack","high_jack","Effdf")
-res.1 <- res %>% mutate(Pop=gsub("^\\s+\\d{1,2}:|^\\s+$","",Pop)) %>% mutate(Pop=gsub("\\s+","",Pop))
+res.1 <- res %>% mutate(Pop=gsub("^\\s+\\d{1,2}:|^\\s+$","",Pop)) %>% mutate(Pop=gsub("\\s+","",Pop),MatingModel=matModel)
 
 for(i in 1:nrow(res.1)){
   if(!is.na(res.1$SampSize[i])){s=res.1$SampSize[i]}
