@@ -54,7 +54,7 @@ exportGenePop_RLDNe <- function(EFGLdata, filename="genepop.gen", header = "gene
     if(max(nchar(pops))>10){
       newpops <- paste0("pop",sprintf("%05d",1:length(pops)))
       popdecode <- tibble(Pop=pops,GP_NAME=newpops,LD_NAME=newpops)
-      gp <- gp %>% mutate(Ind=popdecode$GP_NAME[match(gsub(",$","",Ind),popdecode$Pop)])
+      gp <- gp %>% mutate(Ind=paste0(popdecode$GP_NAME[match(gsub(",$","",Ind),popdecode$Pop)],","))
     }else{
       popdecode<-NULL}
 
